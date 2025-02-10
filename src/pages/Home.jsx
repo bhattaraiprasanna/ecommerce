@@ -1,34 +1,50 @@
-import React from 'react'
-import { Categories } from '../assets/mockData'
-import HeroImage from '../assets/Images/hero-page.jpg'
+import React from 'react';
+import { Categories } from '../assets/mockData';
+import HeroImage from '../assets/Images/hero-page.jpg'; 
+import CategorySection from '../components/CategorySection';
+import { FaChevronRight } from 'react-icons/fa';
+import InfoSection from '../components/infoSection';
+
 const Home = () => {
   return (
-    <div className='bg-white mt-2 px-4 md:px-16 lg:px-24 '>
-      <div className='container mx-auto py-4 flex flex-col md:flex-row'>
-        <div className='w-full md:w-3/12'>
-            <div className='bg-red-600 text-white text-xs font-bold px-2 py-2.5'>SHOP BY CATEGORIES</div>
-            <ul className='space-y-4 bg-gray-100 p-3 border'>
-              {Categories.map((category, index) =>(
-                <li key={index} className='flex items-center text-sm font-medium'>
-                  <div className='w-2 h-2 border border-red-500 rounded-full mr-2'></div>
-                  {category}
-                </li>
-              ))}
-            </ul>
+    <div className="bg-gray-50 mt-2 px-4 md:px-16 lg:px-24">
+      {/* Main Container */}
+      <div className="container mx-auto py-6 flex flex-col md:flex-row gap-8">
+        {/* Category Sidebar - Improved UI */}
+        <div className="w-full md:w-3/12 bg-white shadow-lg rounded-xl overflow-hidden">
+          <div className="bg-red-600 text-white text-sm font-semibold px-6 py-3 uppercase">
+            Shop by Categories
           </div>
+          <ul className="space-y-3 bg-white p-5">
+            {Categories.map((category, index) => (
+              <li 
+                key={index} 
+                className="flex items-center text-sm font-medium text-gray-700 py-2 px-4 rounded-lg hover:bg-red-50 hover:text-red-600 cursor-pointer transition duration-300"
+              >
+                <FaChevronRight className="text-xs text-red-500 mr-2" />
+                {category}
+              </li>
+            ))}
+          </ul>
+        </div>
 
-          <div className='w-full md:w-9/12 mt-8 md:mt-0 h-96 relative'>
-            <img src={HeroImage} alt=""  className='h-full w-full'/>
-            <div className='absolute top-16 left-8'>
-              <p className='text-gray-600 mb-4 '>Best products available</p>
-              <h2 className='text-3xl font-bold'>WELCOME TO E-SHOP</h2>
-              <p className='text-xl mt-2.5 font-bold text-gray-800'>MILLIONS+ PRODUCTS</p>
-              <button className='bg-red-600 px-8 py-1.5 text-white mt-4 hover:bg-red-700 transform transition-transform duration-300 hover:scale-105'>SHOP NOW</button>
-            </div>
+        {/* Hero Section */}
+        <div className="w-full md:w-9/12 relative rounded-xl overflow-hidden shadow-lg">
+          <img src={HeroImage} alt="Hero Banner" className="h-96 w-full object-cover" />
+          <div className="absolute top-1/4 left-8 bg-white/80 p-6 rounded-lg shadow-md">
+            <p className="text-gray-700 mb-2 text-sm">Best products available</p>
+            <h2 className="text-3xl font-bold text-gray-900">WELCOME TO E-SHOP</h2>
+            <p className="text-lg mt-2 font-semibold text-gray-800">MILLIONS+ PRODUCTS</p>
+            <button className="bg-red-600 text-white px-6 py-2 mt-4 rounded-lg font-semibold hover:bg-red-700 transition duration-300">
+              SHOP NOW
+            </button>
           </div>
         </div>
-      </div>
-  )
-}
+      </div> 
+      <InfoSection /> 
+      <CategorySection />
+    </div>
+  );
+};
 
-export default Home
+export default Home;
