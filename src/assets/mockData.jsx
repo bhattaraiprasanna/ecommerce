@@ -5,4 +5,4 @@ export const Categories =[
     "Beauty",
     "Sports",
     "Automotive",
-]
+];
