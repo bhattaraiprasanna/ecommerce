@@ -1,11 +1,18 @@
-import React from 'react';
-import { Categories } from '../assets/mockData';
+import React, { useEffect } from 'react';
+import { Categories, mockData } from '../assets/mockData';
 import HeroImage from '../assets/Images/hero-page.jpg'; 
 import CategorySection from '../components/CategorySection';
 import { FaChevronRight } from 'react-icons/fa';
 import InfoSection from '../components/infoSection';
+import {setProducts} from '../redux/productSlice';
+import {useDispatch , useSelector} from 'react-redux';
 
 const Home = () => {
+  const dispatch = useDispatch()
+  const products = useSelector(state => state.product);
+  useEffect(() => {
+    dispatch(setProducts(mockData))
+  }, [])
   return (
     <div className="bg-gray-50 mt-2 px-4 md:px-16 lg:px-24">
       {/* Main Container */}
@@ -43,6 +50,14 @@ const Home = () => {
       </div> 
       <InfoSection /> 
       <CategorySection />
+      <div>
+        <h2>Top Products</h2>
+        <div>
+          {products.product.slice(0,5).map(((product) => (
+            <div>{product.title}</div>
+          )))  }
+        </div>
+      </div>
     </div>
   );
 };
