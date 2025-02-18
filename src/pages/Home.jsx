@@ -53,7 +53,7 @@ const Home = () => {
       <div>
         <h2>Top Products</h2>
         <div>
-          {products.product.slice(0,5).map(((product) => (
+          {products.products.slice(0,5).map(((product) => (
             <div>{product.title}</div>
           )))  }
         </div>
