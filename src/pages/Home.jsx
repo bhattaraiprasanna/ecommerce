@@ -6,6 +6,7 @@ import { FaChevronRight } from 'react-icons/fa';
 import InfoSection from '../components/infoSection';
 import {setProducts} from '../redux/productSlice';
 import {useDispatch , useSelector} from 'react-redux';
+import ProductCart from '../components/ProductCart';
 
 const Home = () => {
   const dispatch = useDispatch()
@@ -14,10 +15,8 @@ const Home = () => {
     dispatch(setProducts(mockData))
   }, [])
   return (
-    <div className="bg-gray-50 mt-2 px-4 md:px-16 lg:px-24">
-      {/* Main Container */}
-      <div className="container mx-auto py-6 flex flex-col md:flex-row gap-8">
-        {/* Category Sidebar - Improved UI */}
+    <div className="bg-gray-50 mt-2 px-4 md:px-16 lg:px-24"> 
+      <div className="container mx-auto py-6 flex flex-col md:flex-row gap-8">  
         <div className="w-full md:w-3/12 bg-white shadow-lg rounded-xl overflow-hidden">
           <div className="bg-red-600 text-white text-sm font-semibold px-6 py-3 uppercase">
             Shop by Categories
@@ -48,13 +47,13 @@ const Home = () => {
           </div>
         </div>
       </div> 
-      <InfoSection /> 
+      <InfoSection />
       <CategorySection />
       <div>
         <h2>Top Products</h2>
         <div>
           {products.products.slice(0,5).map(((product) => (
-            <div>{product.title}</div>
+            <ProductCart product={product} />
           )))  }
         </div>
       </div>
