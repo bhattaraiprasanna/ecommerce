@@ -1,5 +1,7 @@
 import React from 'react'
 import { FaStar } from 'react-icons/fa'
+import { addToCart } from '../redux/cartSlice'
+
 
 function ProductCart ({product}) {
   return (
