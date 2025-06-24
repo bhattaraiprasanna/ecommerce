@@ -84,6 +84,7 @@ const Cart = () => {
           isModalOpen={isModalOpen}
           setIsModalOpen={setIsModalOpen}
           <ChangeAddress setAddress={setAddress} setIsModalOpen={setIsModalOpen} />
+          
         </Modal>
       </div>
     :<div className='flex justify-center '>
